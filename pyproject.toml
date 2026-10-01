@@ -1,0 +1,16 @@
+[project]
+name = "web-analyzer"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = [
+    "openai>=3.22.1",
+]
+
+[project.scripts]
+web-analyzer = "web_analyzer:main"
+
+[build-system]
+requires = ["uv_build>=0.12.21,<0.13.0"]
+build-backend = "uv_build"
