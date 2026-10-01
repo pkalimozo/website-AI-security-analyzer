@@ -48,9 +48,9 @@ def summarize(url: str, client: OpenAI) -> str:
     try:
         website_content = fetch_website_contents(url)
         if not website_content or not website_content.strip():
-            return "⚠️ Error: Website content was empty or could not be scraped."
+            return "Error: Website content was empty or could not be scraped."
     except Exception as e:
-        return f"❌ Failed to fetch website: {e}"
+        return f"Failed to fetch website: {e}"
 
     print(f"[*] Analyzing content with Ollama ({MODEL})...")
     try:
@@ -64,9 +64,9 @@ def summarize(url: str, client: OpenAI) -> str:
         )
         return response.choices[0].message.content
     except APIConnectionError:
-        return "❌ Error: Could not connect to Ollama. Make sure the server is running (`ollama serve`)."
+        return "Error: Could not connect to Ollama. Make sure the server is running (`ollama serve`)."
     except APIError as e:
-        return f"❌ Ollama API Error: {e}"
+        return f"Ollama API Error: {e}"
 
 
 def main():
